@@ -1,24 +1,10 @@
-import { Alert,StyleSheet, Text, View,TouchableNativeFeedback} from 'react-native';
+import { StyleSheet,View} from 'react-native';
 import React from 'react'
+import Main from './src/components/Main.jsx';
 // import React from 'react' ; 7.4K (gzipped;4k)
 
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <TouchableNativeFeedback
-      onPress={()=>Alert.alert('texto Seleccionado')}>
-        <Text>Rosa erp</Text>
-      </TouchableNativeFeedback>
-    </View>
-  );
+  return<Main/>
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
