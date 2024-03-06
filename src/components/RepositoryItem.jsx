@@ -1,5 +1,24 @@
-import { View,Text,StyleSheet } from "react-native";
 import React from "react";
+import { View,StyleSheet} from "react-native";
+import StyledText from "./StyledText.jsx";
+
+const RepositoryStats = props =>{
+    <View style={{ flexDirection:'row',justifyContent: 'space-around'}}>
+        <StyledText>forksCount:{props.forksCount}</StyledText>
+        <StyledText>ratingAverage:{props.ratingAverage}</StyledText>
+        <StyledText>reviewCount:{props.reviewCount}</StyledText>
+    </View>
+}
+
+
+const RepositoryItem = (props) =>(
+    <View key={props.id} style={styles.container}>
+        <StyledText fontSize='subheading' fontWeight='bold'>{props.fullName}</StyledText>
+        <StyledText >{props.description}</StyledText>
+        <StyledText>{props.lenguaje}</StyledText>
+        <RepositoryStats{...props}/>
+    </View>
+)
 
 const styles = StyleSheet.create({
     container:{
@@ -8,14 +27,4 @@ const styles = StyleSheet.create({
         paddingTop:5
     }
 })
-
-const RepositoryItem = (props) =>(
-    <View key={repo.id} style={styles.container}>
-        <Text style={{ fontWeight:'bold',marginBottom:1 }}>id:{props.id}</Text>
-        <Text>FullName:{props.fullName}</Text>
-        <Text>description:{props.description}</Text>
-        <Text>forksCount:{props.forksCount}</Text>
-        <Text>lenguaje:{props.lenguaje}</Text>
-    </View>
-)
 export default RepositoryItem
